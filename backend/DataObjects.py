@@ -5,7 +5,7 @@ class Customer:
     def insert(self, customer):
         con = None
         try:
-            con.psycopg2.connect(user=self.ConnectionData['user'],
+            con = psycopg2.connect(user=self.ConnectionData['user'],
                                 password=self.ConnectionData['password'],
                                 host=self.ConnectionData['host'],
                                 port=self.ConnectionData['port'],

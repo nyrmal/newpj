@@ -13,11 +13,11 @@ ConnectionData['host'] = str(dp_ip)
 ConnectionData['port'] = '5432'
 ConnectionData['database'] = 'northwind'
 
-@app.route('/')
+@app.route("/")
 def.hello():
     c1 = bo.Customer(1, 'aaa', 'bbb', 'ccc', 'ddd', 'eee', 'fff')
     return c1.CustomerName
-@app.router('/test_insert')
+@app.router("/test_insert")
 def test_insert():
     c2 = do.Customer(ConnectionData)
     c1 = bo.Customer(1, 'aaa', 'bbb', 'ccc', 'ddd', 'eee', 'fff')
