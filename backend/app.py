@@ -11,7 +11,7 @@ ConnectionData['user'] = 'postgres'
 ConnectionData['password'] = 'postgres'
 ConnectionData['host'] = str(dp_ip)
 ConnectionData['port'] = '5432'
-ConnectionData['database'] = 'postgres'
+ConnectionData['database'] = 'northwind'
 
 @app.route('/')
 def.hello():
