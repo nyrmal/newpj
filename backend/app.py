@@ -11,16 +11,16 @@ ConnectionData['user'] = 'postgres'
 ConnectionData['password'] = 'postgres'
 ConnectionData['host'] = str(dp_ip)
 ConnectionData['port'] = '5432'
-ConnectionData['database'] = 'northwind'
+ConnectionData['database'] = 'customers'
 
 @app.route("/")
 def hello():
-    c1 = bo.Customer(1, 'aaa', 'bbb', 'ccc', 'ddd', 'eee', 'fff')
+    c1 = bo.Customer('DAU xanh','Peter','566 Nui Thanh', 'Da Nang','5000','VietNam')
     return c1.CustomerName
 @app.route("/test_insert")
 def test_insert():
     c2 = do.Customer(ConnectionData)
-    c1 = bo.Customer(1, 'aaa', 'bbb', 'ccc', 'ddd', 'eee', 'fff')
+    c1 = bo.Customer('DAU xanh','Peter','566 Nui Thanh', 'Da Nang','5000','VietNam')
     s1 = c2.insert(c1)
     return s1
 # app = Flask(__name__)
