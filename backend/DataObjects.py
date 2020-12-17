@@ -9,7 +9,7 @@ class Customer:
                                 password=self.ConnectionData['password'],
                                 host=self.ConnectionData['host'],
                                 port=self.ConnectionData['port'],
-                                databasse=self.ConnectionData['database'])
+                                database=self.ConnectionData['database'])
             cur = con.cursor()
             sql = "INSERT INTO Customers(CustomerName, ContactName, Address, City, PostalCode, Country) VALUES (%s, %s, %s, %s, %s, %s)"
             record_to_insert = (customer.CustomerName, customer.ContactName, customer.Address, customer.City, customer.PostalCode, customer.Country)
