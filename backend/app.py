@@ -14,7 +14,7 @@ ConnectionData['port'] = '5432'
 ConnectionData['database'] = 'northwind'
 
 @app.route("/")
-def.hello():
+def hello():
     c1 = bo.Customer(1, 'aaa', 'bbb', 'ccc', 'ddd', 'eee', 'fff')
     return c1.CustomerName
 @app.router("/test_insert")
