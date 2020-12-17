@@ -9,4 +9,4 @@ class Customer:
         self.Country = Country
 
 if __name__ == "__main__":
-    print('this is Cus table')
+    print('this is business object package')
