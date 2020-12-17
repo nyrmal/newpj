@@ -14,8 +14,8 @@ class Customer:
             sql = "INSERT INTO Customers(CustomerName, ContactName, Address, City, PostalCode, Country) VALUES (%s, %s, %s, %s, %s, %s)"
             record_to_insert = (customer.CustomerName, customer.ContactName, customer.Address, customer.City, customer.PostalCode, customer.Country)
             cus.execute(sql, record_to_insert)
-            cus.commit()
-            cus.close()
+            con.commit()
+            con.close()
             return 'insert successfully'
         except (Exception, psycopg2.DatabaseError) as error:
             return str(error)
