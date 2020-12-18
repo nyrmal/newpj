@@ -58,8 +58,7 @@ class Customer:
                                   port=self.ConnectionData['port'],
                                   database=self.ConnectionData['database'])
             cur = con.cursor()
-            sql = "SELECT * FROM TblCustomers WHERE Customerid=%s"
-            record_to_insert = (customer.CustomerName, customer.ContactName, customer.Address, customer.City, customer.PostalCode, customer.Country)
+            sql = "SELECT * FROM TblCustomers WHERE customerid=%s"
             cur.execute(sql, (customer.CustomerID, ))
             con.commit()
             rows= cur.fetchone()
