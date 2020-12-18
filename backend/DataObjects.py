@@ -34,14 +34,13 @@ class Customer:
                                   database=self.ConnectionData['database'])
             cur = con.cursor()
             sql = "SELECT * FROM TblCustomers"
-            record_to_insert = (customer.CustomerName, customer.ContactName, customer.Address, customer.City, customer.PostalCode, customer.Country)
             cur.execute(sql)
             con.commit()
             rows = cur.fetchall()
             result = []
             for row in rows:
                 c =  CustomerEntity()
-                c.fetchall(row)
+                c.fetch_data(row)
                 result.append(c.to_json())
             con.close()
             return result
