@@ -58,10 +58,10 @@ class Customer:
                                   port=self.ConnectionData['port'],
                                   database=self.ConnectionData['database'])
             cur = con.cursor()
-            sql = "SELECT * FROM TblCustomers WHERE customerid=%s"
+            sql = "SELECT * FROM TblCustomers WHERE CustomerID=%s"
             cur.execute(sql, (customer.CustomerID, ))
             con.commit()
-            rows= cur.fetchone()
+            row = cur.fetchone()
             if row:
                 c = CutomerEntity()
                 c.fetch_data(row)
@@ -73,5 +73,6 @@ class Customer:
         finally:
             if con is not None:
                 con.close()
+
 if __name__ == "__main__":
     print('this is data object package')
