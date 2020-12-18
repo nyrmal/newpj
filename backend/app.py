@@ -68,8 +68,13 @@ def get_user_by_id(customer_id):
 def update_user_by_id(customer_id):
     data = request.json
     c = bo.Customer(CustomerID=data['CustomerID'], CustomerName=data['CustomerName'], ContactName=data['ContactName'], Address=data['Address'], City=data['City'], PostalCode=data['PostalCode'], Country=data['Country'])
-    result = do.Customer(ConnectionData).update()
+    result = do.Customer(ConnectionData).update(c)
     return jsonify({'message': result[0]}), result[1]
-    
+
+@app.route('/user/update/<int:customer_id>', methods=['DELETE'])
+def delete_user_by_id(customer_id):
+    c = bo.Customer(CustomerID=customer_id)
+    result = do.Customer(ConnectionData).delete(c)
+    return jsonify({'message': result[0]}), result[1]
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080)
