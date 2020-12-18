@@ -51,12 +51,12 @@ def user_insert():
     result['message'] = s1
     return jsonify(result), 200
 
-@app.route('user/all')
+@app.route('/user/all')
 def get_all_user():
     result = do.Customer(ConnectionData).get_all()
     return jsonify(result), 200
 
-@app.route('user/get/<int:user_id>')
+@app.route('/user/get/<int:user_id>')
 def get_user_by_id(user_id):
     c = bo.Customer(CustomerID=user_id)
     result = do.Customer(ConnectionData).get_by_id(c)
