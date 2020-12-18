@@ -49,6 +49,7 @@ class Customer:
         finally:
             if con is not None:
                 con.close()
+
     def get_by_id(self, customer: CustomerEntity):
         con = None
         try:
@@ -63,7 +64,7 @@ class Customer:
             con.commit()
             row = cur.fetchone()
             if row:
-                c = CutomerEntity()
+                c = CustomerEntity()
                 c.fetch_data(row)
                 return c, 200
             con.close()
