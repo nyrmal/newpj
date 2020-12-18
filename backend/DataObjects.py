@@ -87,7 +87,7 @@ class Customer:
             sql = "UPDATE tblCustomers SET customername=%s, contactname=%s, address=%s, city=%s, postalcode=%s, country=%s WHERE customerid=%s"
             cur.execute(sql, (customer.CustomerName, customer.ContactName, customer.Address, customer.City, customer.PostalCode, customer.Country, customer.CustomerID))
             con.commit()
-            row = cur.rowcount()
+            row = cur.rowcount
             if row > 0:
                 return 'update Customer', 200
             con.close()
