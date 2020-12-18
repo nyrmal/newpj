@@ -50,26 +50,25 @@ class Customer:
             if con is not None:
                 con.close()
 
-    def get_by_id(self,customer: CustomerEntity):
+    def get_by_id(self, customer: CustomerEntity):
         con = None
         try:
-            con = psycopg2.connect(user = self.ConnectionData['user'],
-                                password = self.ConnectionData['password'],
-                                host = self.ConnectionData['host'],
-                                port = self.ConnectionData['port'],
-                                database = self.ConnectionData['database'])
+            con = psycopg2.connect(user=self.ConnectionData['user'],
+                                  password=self.ConnectionData['password'],
+                                  host=self.ConnectionData['host'],
+                                  port=self.ConnectionData['port'],
+                                  database=self.ConnectionData['database'])
             cur = con.cursor()
-            sql = "SELECT * FROM TblCustomers WHERE customerid=%s"
-
-            cur.execute(sql,(customer.CustomerID, ))
-            con.commit()           
+            sql = "SELECT * FROM tblCustomers WHERE customerid=%s"
+            cur.execute(sql, (customer.CustomerID, ))
+            con.commit()
             row = cur.fetchone()
             if row:
                 c = CustomerEntity()
                 c.fetch_data(row)
                 return c, 200
             con.close()
-            return "Customer ID not found", 404
+            return 'Customer ID not found', 404
         except (Exception, psycopg2.DatabaseError) as error:
             return str(error)
         finally:
