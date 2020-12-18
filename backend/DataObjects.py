@@ -49,7 +49,7 @@ class Customer:
         finally:
             if con is not None:
                 con.close()
-    def get_by_id(self, Customer: CustomerEntity):
+    def get_by_id(self, customer: CustomerEntity):
         con = None
         try:
             con = psycopg2.connect(user=self.ConnectionData['user'],
@@ -58,7 +58,7 @@ class Customer:
                                   port=self.ConnectionData['port'],
                                   database=self.ConnectionData['database'])
             cur = con.cursor()
-            sql = "SELECT * FROM TblCustomers WHERE CustomerID=%s"
+            sql = "SELECT * FROM TblCustomers WHERE customerid=%s"
             cur.execute(sql, (customer.CustomerID, ))
             con.commit()
             row = cur.fetchone()
