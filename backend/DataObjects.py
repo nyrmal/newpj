@@ -201,33 +201,6 @@ class orderDetail:
             if con is not None:
                 con.close()
 
-    def get_by_order_id(self, order: OrderEntity):
-        con = None
-        try:
-            con = psycopg2.connect(user=self.ConnectionData['user'],
-                                  password=self.ConnectionData['password'],
-                                  host=self.ConnectionData['host'],
-                                  port=self.ConnectionData['port'],
-                                  database=self.ConnectionData['database'])
-            cur = con.cursor()
-            sql = "select * from tblorderDetails where orderid=%s"
-            cur.execute(sql, (order.order_id, ))
-            con.commit()
-            rows = cur.fetchall()
-            result = []
-            for row in rows:
-                c = orderDetailEntity()
-                c.fetch_data(row)
-                result.append(c.to_json())
-            con.close()
-            return result
-        except (Exception, psycopg2.DatabaseError) as error:
-            print(error)
-            return str(error)
-        finally:
-            if con is not None:
-                con.close()
-
     def update(self, orderdetail: orderDetailEntity):
         con = None
         try:
