@@ -1,6 +1,6 @@
 import psycopg2
-from BusinessObject import Customer as CustomerEntity
-from BusinessObject import oderDetail as oderDetailEntity
+from BusinessObjects import Customer as CustomerEntity
+from BusinessObjects import oderDetail as oderDetailEntity
 
 class Customer:
     def __init__(self,ConnectionData):

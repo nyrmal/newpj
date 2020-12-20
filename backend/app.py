@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 import os
-import BusinessObject as bo
-import DataObject as do 
+import BusinessObjects as bo
+import DataObjects as do 
 
 app = Flask(__name__)
 
