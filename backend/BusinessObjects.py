@@ -28,7 +28,7 @@ class Customer:
             'Country' : self.Country
         }
 
-class oderDetail:
+class orderDetail:
     def __init__(self, OrderDetailID , OrderID, ProductID , Quantity):
         self.OrderDetailID  = OrderDetailID
         self.OrderID  = OrderID
